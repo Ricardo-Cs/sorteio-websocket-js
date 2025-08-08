@@ -1,0 +1,65 @@
+    Backend (Node.js/Express)
+Configure um servidor web com Node.js e Express.
+
+Crie um servidor WebSocket para comunicação em tempo real.
+
+Defina as rotas do servidor para servir as páginas HTML do cliente (/) e do administrador (/admin).
+
+Implemente a lógica de conexão para gerenciar os clientes conectados.
+
+Mantenha uma lista de todos os clientes conectados.
+
+Identifique e marque o cliente administrador quando ele se conectar.
+
+Gerencie o fechamento de conexões, removendo os clientes desconectados da lista.
+
+Crie uma função para sortear um cliente vencedor de forma aleatória entre os participantes (excluindo o administrador).
+
+Quando o sorteio for realizado, envie uma mensagem diferente para o vencedor e para os perdedores.
+
+Desenvolva uma função para atualizar a contagem de participantes e enviar essa informação para o administrador em tempo real.
+
+    Frontend - Lado do Cliente (client.js)
+Estabeleça a conexão com o servidor WebSocket.
+
+Implemente um manipulador para mensagens recebidas do servidor (handleServerMessage).
+
+Mude o estado visual do cliente para "ganhador" ou "perdedor" com base na mensagem do servidor.
+
+Mostre um código de confirmação na tela se o cliente for o vencedor.
+
+Crie uma função para adicionar um efeito de vibração (em dispositivos compatíveis) para o vencedor.
+
+Adicione animações para a logo e outros elementos visuais.
+
+    Frontend - Lado do Administrador (admin.js)
+Estabeleça a conexão com o servidor WebSocket.
+
+Envie uma mensagem de ação para o servidor para se identificar como administrador.
+
+Implemente um manipulador para mensagens recebidas do servidor.
+
+Atualize dinamicamente o contador de participantes na interface com o número recebido do servidor.
+
+Adicione um evento de clique ao botão de sorteio (drawButton).
+
+Ao clicar no botão, gere um código de confirmação aleatório.
+
+Envie o código de sorteio para o servidor via WebSocket.
+
+Exiba o código de confirmação gerado na interface do administrador.
+
+Altere o texto do botão de sorteio após o clique para indicar que o sorteio foi realizado.
+
+    Estilização e Recursos Visuais (styles.css)
+Crie uma classe CSS para o fundo principal da página.
+
+Adicione classes para mudar a cor de fundo para indicar vitória ou derrota.
+
+Defina animações de rotação (@keyframes spin) para a logo ou outros elementos visuais.
+
+Crie classes para controlar a visibilidade e o movimento de mensagens na tela.
+
+Estilize os elementos de texto e botões para uma melhor experiência do usuário.
+
+Adicione media queries para garantir a responsividade em diferentes tamanhos de tela.
