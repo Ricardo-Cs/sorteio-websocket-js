@@ -1,0 +1,1 @@
+let socket = new WebSocket(WS_URL);

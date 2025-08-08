@@ -1,13 +1,13 @@
     Backend (Node.js/Express)
-Configure um servidor web com Node.js e Express.
+- Configure um servidor web com Node.js e Express.
 
-Crie um servidor WebSocket para comunicação em tempo real.
+- Crie um servidor WebSocket para comunicação em tempo real.
 
-Defina as rotas do servidor para servir as páginas HTML do cliente (/) e do administrador (/admin).
+- Defina as rotas do servidor para servir as páginas HTML do cliente (/) e do administrador (/admin).
 
-Implemente a lógica de conexão para gerenciar os clientes conectados.
+- Implemente a lógica de conexão para gerenciar os clientes conectados.
 
-Mantenha uma lista de todos os clientes conectados.
+- Mantenha uma lista de todos os clientes conectados.
 
 Identifique e marque o cliente administrador quando ele se conectar.
 
