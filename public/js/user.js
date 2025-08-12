@@ -19,6 +19,6 @@ function handleServerMessage(event) {
     }
 }
 
-function setClientState() {
+function setClientState(state, ) {
 
 }
