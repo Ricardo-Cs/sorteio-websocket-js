@@ -9,15 +9,15 @@
 
 - Mantenha uma lista de todos os clientes conectados.
 
-Identifique e marque o cliente administrador quando ele se conectar.
+- Identifique e marque o cliente administrador quando ele se conectar.
 
-Gerencie o fechamento de conexões, removendo os clientes desconectados da lista.
+- Gerencie o fechamento de conexões, removendo os clientes desconectados da lista.
 
-Crie uma função para sortear um cliente vencedor de forma aleatória entre os participantes (excluindo o administrador).
+- Crie uma função para sortear um cliente vencedor de forma aleatória entre os participantes (excluindo o administrador).
 
-Quando o sorteio for realizado, envie uma mensagem diferente para o vencedor e para os perdedores.
+- Quando o sorteio for realizado, envie uma mensagem diferente para o vencedor e para os perdedores.
 
-Desenvolva uma função para atualizar a contagem de participantes e enviar essa informação para o administrador em tempo real.
+- Desenvolva uma função para atualizar a contagem de participantes e enviar essa informação para o administrador em tempo real.
 
     Frontend - Lado do Cliente (client.js)
 Estabeleça a conexão com o servidor WebSocket.
