@@ -2,22 +2,27 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
-  <div class="confirmation-form">
+    <form id="confirmation-form">
+        <input type="text" name="admin-code" id="admin-code">
+        <input type="submit" value="Enviar">
+    </form>
 
-  </div>
+    <main class="main-admin">
+        <h1>Página do Admin</h1>
+        <span id="user-count"></span>
+        <button id="draw-button">Sortear</button>
+        <span id="winner-number"></span>
+    </main>
 
-  <main>
-    <h1>Página do Admin</h1>
-  </main>
-
-  <script src="./js/config.js"></script>
-  <script src="./js/admin.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/admin.js"></script>
 </body>
 
 </html>
