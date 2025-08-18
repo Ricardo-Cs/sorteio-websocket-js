@@ -5,12 +5,13 @@
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../font/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+    font-family: "Roboto";
+    src: url("../font/Roboto-VariableFont_wdth\,wght.ttf") format("truetype");
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
+    background-color: #aef6c7;
 }
 
 main {
@@ -21,21 +22,80 @@ main {
     height: 100vh;
 }
 
-
-span#client-number, span#user-count {
+span#client-number,
+span#client-number-text,
+span#user-count {
     display: block;
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
 /* Admin */
-main.main-admin { 
-    display: none;
+#confirmation-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-form {
+.input-wrapper {
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    flex-direction: column;
+    gap: 20px;
+    width: 250px;
+}
+
+.input-wrapper label {
+    color: #333;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+#admin-code {
+    background-color: inherit;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 8px 0;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Para retirar os estilos no autocomplete do navegador */
+#admin-code:-webkit-autofill,
+#admin-code:-webkit-autofill:hover,
+#admin-code:-webkit-autofill:focus {
+    box-shadow: 0 0 0px 1000px #aef6c7 inset;
+    -webkit-text-fill-color: black;
+}
+
+#admin-code:focus + label,
+#admin-code:not(:placeholder-shown) + label {
+    top: -12px;
+    font-size: 12px;
+    color: black;
+    opacity: 0.6;
+}
+
+input[type="submit"],
+#draw-button {
+    padding: 8px 12px;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+input[type="submit"]:hover {
+    background: #333;
+}
+
+main.main-admin {
+    display: none;
+    gap: 10px;
 }

@@ -12,7 +12,7 @@ function handleServerMessage(event) {
     const message = JSON.parse(event.data);
     switch (message.type) {
         case "client-number":
-            numberSpan.innerText = `Número de sorteio: ${message.data}`;
+            numberSpan.innerText = `${message.data}`;
             break;
         case "status-draw":
             if (message.data) {

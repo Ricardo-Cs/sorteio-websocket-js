@@ -35,7 +35,6 @@ wss.on("connection", (ws, req) => {
     if (token) {
         if (token === process.env.ADMIN_TOKEN) {
             ws.isAdmin = true;
-            console.log("Admin conectado");
         } else {
             ws.close(1008, "Código de admin inválido");
             return;
@@ -50,17 +49,14 @@ wss.on("connection", (ws, req) => {
 
     ws.on("message", (message) => {
         const parsedMessage = JSON.parse(message);
-        console.log("Mensagem recebida: ", parsedMessage);
 
         if (parsedMessage.type === "draw-winner" && ws.isAdmin) {
-            console.log("Iniciando sorteio...");
             drawWinner();
         }
     });
 
     ws.on("close", () => {
         clientsNumbers = clientsNumbers.filter((number) => number !== ws.code);
-        console.log("Conexão Fechada");
     });
 });
 

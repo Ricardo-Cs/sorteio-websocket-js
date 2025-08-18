@@ -9,13 +9,16 @@
 </head>
 
 <body>
-    <form id="confirmation-form">
-        <input type="text" name="admin-code" id="admin-code">
-        <input type="submit" value="Enviar">
-    </form>
+    <div id="confirmation-form">
+        <form class="input-wrapper">
+            <input type="text" name="code" id="admin-code" placeholder=" " />
+            <label for="admin-code">Insira o código de administrador</label>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
 
     <main class="main-admin">
-        <h1>Página do Admin</h1>
         <span id="user-count"></span>
         <button id="draw-button">Sortear</button>
         <span id="winner-number"></span>
