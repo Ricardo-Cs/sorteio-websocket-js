@@ -1,6 +1,14 @@
-let socket = new WebSocket(WS_URL);
 const numberSpan = document.getElementById("client-number");
 const resultSpan = document.getElementById("client-state");
+
+let token = localStorage.getItem("token");
+if (!token) {
+    token = crypto.randomUUID();
+    localStorage.setItem("token", token);
+}
+
+// Inclui o token na conexão
+const socket = new WebSocket(`${WS_URL}?token=${token}`);
 
 socket.addEventListener("message", handleServerMessage);
 
@@ -20,7 +28,6 @@ function handleServerMessage(event) {
             } else {
                 resultSpan.innerText = "Você Perdeu!";
             }
+            break;
     }
 }
-
-function setClientState(state) {}

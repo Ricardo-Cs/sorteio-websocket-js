@@ -27,21 +27,18 @@ server.listen(APP_PORT, () => {
     console.log(`App executando na porta ${APP_PORT}`);
 });
 
+let userCodes = new Map(); // token -> code
+
 wss.on("connection", (ws, req) => {
     const query = req.url.split("?")[1];
     const params = new URLSearchParams(query);
     const token = params.get("token");
 
-    if (token) {
-        if (token === process.env.ADMIN_TOKEN) {
-            ws.isAdmin = true;
-        } else {
-            ws.close(1008, "Código de admin inválido");
-            return;
-        }
+    if (token === process.env.ADMIN_TOKEN) {
+        ws.isAdmin = true;
     } else {
         ws.isAdmin = false;
-        let number = generateCode(ws, 100);
+        let number = generateCode(ws, token, 100);
         ws.send(JSON.stringify({ type: "client-number", data: number }));
     }
 
@@ -49,22 +46,29 @@ wss.on("connection", (ws, req) => {
 
     ws.on("message", (message) => {
         const parsedMessage = JSON.parse(message);
-
         if (parsedMessage.type === "draw-winner" && ws.isAdmin) {
             drawWinner();
         }
     });
 
     ws.on("close", () => {
-        clientsNumbers = clientsNumbers.filter((number) => number !== ws.code);
+        // remove só se não houver mais conexões com esse token
+        if (![...wss.clients].some((c) => c.code === ws.code && c !== ws)) {
+            clientsNumbers = clientsNumbers.filter((n) => n !== ws.code);
+            userCodes.delete(token);
+        }
+        updateClientsCount();
     });
 });
 
-function generateCode(ws, size) {
-    let randomNumber = Math.floor(Math.random() * size) + 1;
-    ws.code = randomNumber;
-    clientsNumbers.push(randomNumber);
-    return randomNumber;
+function generateCode(ws, token, size) {
+    if (!userCodes.has(token)) {
+        let randomNumber = Math.floor(Math.random() * size) + 1;
+        userCodes.set(token, randomNumber);
+        clientsNumbers.push(randomNumber);
+    }
+    ws.code = userCodes.get(token);
+    return ws.code;
 }
 
 function drawWinner() {
