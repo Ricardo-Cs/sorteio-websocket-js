@@ -1,1 +1,3 @@
-const WS_URL = 'ws://localhost:3000';
+const WS_URL = `${window.location.protocol === "https:" ? "wss" : "ws"}://${
+    window.location.host
+}`;
