@@ -26,7 +26,6 @@ Siga os passos abaixo para configurar e executar a aplicação:
     Crie um arquivo `.env` na raiz do projeto baseado no `.env.example`. Defina as seguintes variáveis:
     ```
     APP_PORT=3000
-    APP_URL=http://localhost
     ADMIN_TOKEN=seu_token_de_admin_aqui
     ```
 3.  **Executar o servidor:**
@@ -40,7 +39,3 @@ Siga os passos abaixo para configurar e executar a aplicação:
 
 * **Interface do Usuário:** Acesse `http://localhost:3000` no seu navegador. Cada usuário conectado receberá um número aleatório.
 * **Interface do Administrador:** Acesse `http://localhost:3000/admin`. Você precisará inserir o `ADMIN_TOKEN` definido no arquivo `.env` para acessar o painel de controle e iniciar o sorteio.
-
-### Observação sobre a Interface
-
-A interface desta aplicação é extremamente simples e não foi uma prioridade durante o desenvolvimento. O foco principal foi na implementação das funcionalidades de WebSockets para a comunicação em tempo real. No entanto, a interface pode ser alterada e melhorada no futuro.
